@@ -16,13 +16,10 @@ class TriangleNumberDivisors
     (2..(x/2)).collect do |n|
       [n, x/n] if (n * (x/n) == x)
     end.unshift([1, x]).flatten.uniq
-
-    # (1..x).select {|n| x % n == 0}
   end
 
   def enough_divisors
     while get_divisors.count <= @divisor_count
-      # binding.pry
       @nums << @nums.last + 1
     end
     triangle_number
